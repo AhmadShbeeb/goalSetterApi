@@ -2,12 +2,14 @@ const path = require('path')
 require('dotenv').config()
 require('colors')
 const express = require('express')
+const cors = require('cors')
 const { errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
 
 const port = process.env.PORT || 5000
 connectDB()
 const app = express()
+app.use(cors())
 
 app.use(express.json()) // attach any json data to the "req" object (converts request body to json)
 app.use(express.urlencoded({ extended: false }))
