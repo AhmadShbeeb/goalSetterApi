@@ -1,6 +1,6 @@
 const asyncHandler = require('express-async-handler') // instead of try catch and use error handler instead of catch
 const Goal = require('../models/goalModel')
-const User = require('../models/userModel')
+// const User = require('../models/userModel')
 
 const getGoals = asyncHandler(async (req, res) => {
   const goals = await Goal.find({ user: req.user.id }) // get only the current logged user goals

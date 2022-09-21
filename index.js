@@ -1,4 +1,3 @@
-const path = require('path')
 require('dotenv').config()
 require('colors')
 const express = require('express')
@@ -11,8 +10,8 @@ connectDB()
 const app = express()
 app.use(cors())
 
-app.use(express.json()) // attach any json data to the "req" object (converts request body to json)
-app.use(express.urlencoded({ extended: false }))
+app.use(express.json()) // attach any json data to the "req" object (converts request body to json) for parsing application/json
+app.use(express.urlencoded({ extended: false })) // for parsing application/x-www-form-urlencoded from the form post and attach it to req.body
 
 app.use('/api/goals', require('./routes/goalRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
